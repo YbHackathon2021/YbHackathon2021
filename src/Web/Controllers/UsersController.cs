@@ -26,5 +26,11 @@ namespace YbHackathon.Solutioneers.Web.Controllers
         {
             return userService.GetAll();
         }
+
+        [HttpGet("{id}")]
+        public ActionResult<User> GetById([FromQuery] Guid id)
+        {
+            return userService.GetById(id);
+        }
     }
 }
