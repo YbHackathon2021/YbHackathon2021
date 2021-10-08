@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Challenges from "./Challenges";
-import { Scores } from "./Scores";
+import Scores from "./Scores";
 
 export class Home extends Component {
   static displayName = Home.name;
