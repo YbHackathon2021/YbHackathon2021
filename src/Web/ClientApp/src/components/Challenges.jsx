@@ -2,9 +2,10 @@ import authService from "./api-authorization/AuthorizeService";
 import React, { useState, useEffect } from "react";
 import { Spinner } from "reactstrap";
 import { ChallengeCard } from "./ChallengeCard";
+import { ChallengeCatalog } from "./ChallengeCatalog";
 
 export const Challenges = ({ onSelected }) => {
-  const [challenges, setChallenges] = useState([]);
+  const [activeChallenges, setActiveChallenges] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -56,7 +57,7 @@ export const Challenges = ({ onSelected }) => {
       ];
 
       // set state with the result
-      setChallenges(data);
+      setActiveChallenges(data);
       setIsLoading(false);
     };
 
@@ -66,14 +67,14 @@ export const Challenges = ({ onSelected }) => {
       .catch(console.error);
   }, []);
 
-  const renderChallenges = (challenges) => {
+  const renderActiveChallenges = (challenges) => {
     return (
       <>
         {challenges.map((challenge) => (
           <ChallengeCard
             key={challenge.id}
             challenge={challenge}
-            onSelected={() => onSelected(challenge)}
+            onSelected={() => onSelected(challenge, true)}
           />
         ))}
       </>
@@ -82,13 +83,17 @@ export const Challenges = ({ onSelected }) => {
 
   return (
     <div>
-      <h1>Challenges</h1>
+      <h2>Challenges</h2>
       {isLoading ? (
-        <p>
-          <Spinner type="grow" color="info" />
-        </p>
+        <Spinner type="grow" color="info" />
       ) : (
-        renderChallenges(challenges)
+        <>
+          {renderActiveChallenges(activeChallenges)}
+          <div className="h-divider-50"></div>
+          <ChallengeCatalog
+            onShowChallengeDetails={(challenge) => onSelected(challenge, false)}
+          />
+        </>
       )}
     </div>
   );

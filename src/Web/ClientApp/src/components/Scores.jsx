@@ -4,7 +4,7 @@ import { Progress } from "reactstrap";
 export const Scores = () => {
   return (
     <>
-      <h1>Scores</h1>
+      <h2>Scores</h2>
 
       <div className="text-left">Food:</div>
       <Progress animated color="primary" value={10} />
