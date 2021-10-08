@@ -33,9 +33,14 @@ namespace YbHackathon.Solutioneers.Web.Data
             Guid GuidImageLavendel = new Guid("66E754E5-F1C5-49C4-BA80-58791913295E");
             Guid GuidImageRecycling = new Guid("6B437DCE-8B39-4C84-B2A8-1D9D401E517F");
             Guid GuidImageSolar = new Guid("6E93C6B8-FB4A-4E51-97D1-D842B8ECA69D");
-            //Guid Guid005 = new Guid("D00A60F5-41DA-4E46-A222-86F373959AB8");
-            Guid GuidChallenge01 = new Guid("930FE3AA-EE36-427C-A819-00EAD0E4ACCF");
-            Guid GuidChallenge02 = new Guid("615DA515-3F0D-4CC0-A9DF-E7A9C880C023");
+            Guid GuidImageBike = new Guid("D00A60F5-41DA-4E46-A222-86F373959AB8");
+            Guid GuidImageHeating = new Guid("DDEC456C-7199-48A7-9C2F-BBD0A02A54F9");
+            Guid GuidImagePumpkins = new Guid("9759BAF3-554F-46D9-A9EE-5515E720D6A9");
+            Guid GuidChallenge01 = new Guid("5B2FF22E-F3D4-4BE8-867B-4532F8F285B0");
+            Guid GuidChallenge02 = new Guid("5762DCB9-72C8-40C7-B4B5-EE26D5DDBD9A");
+            Guid GuidChallenge03 = new Guid("68DA4EB4-F62D-4DBE-B28F-6C87332F54D4");
+            Guid GuidChallenge04 = new Guid("3B248D48-72EF-4C7D-BC3C-32D2EAA757B9");
+            Guid GuidChallenge05 = new Guid("845C79AE-B98D-4004-B446-D48F8EE0F252");
 
             base.OnModelCreating(builder);
             System.Drawing.ImageConverter _imageConverter = new System.Drawing.ImageConverter();
@@ -44,6 +49,9 @@ namespace YbHackathon.Solutioneers.Web.Data
             System.Drawing.Image imageLavendel = System.Drawing.Image.FromFile("Resources/Lavendel.png");
             System.Drawing.Image imageRecycling = System.Drawing.Image.FromFile("Resources/Recycling.png");
             System.Drawing.Image imageSolar = System.Drawing.Image.FromFile("Resources/Solar.png");
+            System.Drawing.Image ImageBike = System.Drawing.Image.FromFile("Resources/Bike.png");
+            System.Drawing.Image ImageHeating = System.Drawing.Image.FromFile("Resources/Heating.png");
+            System.Drawing.Image ImagePumpkins = System.Drawing.Image.FromFile("Resources/Pumpkins.png");
 
             builder.Entity<Image>().HasData(
                 new Image
@@ -77,6 +85,30 @@ namespace YbHackathon.Solutioneers.Web.Data
                 }
             );
 
+            builder.Entity<Image>().HasData(
+                new Image
+                {
+                    Id = GuidImageBike,
+                    Data = (byte[])_imageConverter.ConvertTo(imageSolar, typeof(byte[]))
+                }
+            );
+
+            builder.Entity<Image>().HasData(
+                new Image
+                {
+                    Id = GuidImageHeating,
+                    Data = (byte[])_imageConverter.ConvertTo(imageSolar, typeof(byte[]))
+                }
+            );
+
+            builder.Entity<Image>().HasData(
+                new Image
+                {
+                    Id = GuidImagePumpkins,
+                    Data = (byte[])_imageConverter.ConvertTo(imageSolar, typeof(byte[]))
+                }
+            );
+
             builder.Entity<Challenge>().HasData(
                 new Challenge
                 {
@@ -86,7 +118,7 @@ namespace YbHackathon.Solutioneers.Web.Data
                     Topic = Topic.Stuff,
                     PointsToEarn = 3,
                     OpenFrom = new DateTime(2021, 10, 1),
-                    OpenTo = new DateTime(2021, 10, 20),
+                    OpenTo = new DateTime(2023, 10, 20),
                     ImageId = GuidImageCoats
                 }
             );
@@ -100,8 +132,50 @@ namespace YbHackathon.Solutioneers.Web.Data
                     Topic = Topic.Home,
                     PointsToEarn = 3,
                     OpenFrom = new DateTime(2021, 10, 1),
-                    OpenTo = new DateTime(2021, 10, 20),
+                    OpenTo = new DateTime(2023, 01, 20),
                     ImageId = GuidImageSolar
+                }
+            );
+
+            builder.Entity<Challenge>().HasData(
+                new Challenge
+                {
+                    Id = GuidChallenge03,
+                    Title = "Bike to work - for your health and for our planet",
+                    Description = "Switzerland-wide campaigns such as Bike to Work or Bike Wednesday are designed to encourage the Swiss to get around more by bike. At the beginning of June, more than 70,000 participants had already covered more than six and a half million kilometers by bicycle as part of Bike to Work. This has saved a good 900 tons of CO2 equivalents. Anyone who cycles to work every Wednesday and covers at least three kilometers can enter the distance traveled on the Bike Wednesday website and win vouchers or non-cash prizes.",
+                    Topic = Topic.Home,
+                    PointsToEarn = 3,
+                    OpenFrom = new DateTime(2021, 10, 1),
+                    OpenTo = new DateTime(2023, 03, 20),
+                    ImageId = GuidImageBike
+                }
+            );
+
+            builder.Entity<Challenge>().HasData(
+                new Challenge
+                {
+                    Id = GuidChallenge04,
+                    Title = "Turn down your heating and save money",
+                    Description = "Even though the feeling of warmth is always subjective, there are nevertheless guidelines for the optimum room temperature of any room. If you reduce the temperature by one degree in winter, you can save up to six percent on heating costs at the end of the year. This not only relieves the burden on your wallet, but also on the environment. For a family of four, this means that around 350 kg of carbon dioxide is not released into the air each year.",
+                    Topic = Topic.Home,
+                    PointsToEarn = 3,
+                    OpenFrom = new DateTime(2021, 10, 1),
+                    OpenTo = new DateTime(2023, 06, 20),
+                    ImageId = GuidImageHeating
+                }
+            );
+
+            builder.Entity<Challenge>().HasData(
+                new Challenge
+                {
+                    Id = GuidChallenge05,
+                    Title = "Pumpkins - regionally produced and currently seasonal",
+                    Description = "As soon as the first leaves fall from the trees, you can see them shining from afar in the vegetable displays: Pumpkins in bright orange, yellow and green. But the pumpkin is not only a colorful highlight on the plate, but also a real soul food in the fall and therefore hard to imagine the cold months without the kitchen.Whether as a creamy pumpkin soup, spicy pumpkin pie, spread, quiche or as a side dish to risotto, pasta and Co. - the pumpkin is a true all - rounder!",
+                    Topic = Topic.Home,
+                    PointsToEarn = 3,
+                    OpenFrom = new DateTime(2021, 10, 1),
+                    OpenTo = new DateTime(2022, 05, 20),
+                    ImageId = GuidImagePumpkins
                 }
             );
         }
