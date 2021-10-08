@@ -36,7 +36,7 @@ namespace YbHackathon.Solutioneers.Web.Controllers
 
             var acceptedChallenge = _userChallengeService.Accept(user.Id, challengeId);
 
-            return Ok(acceptedChallenge);
+            return new JsonResult(acceptedChallenge);
         }
 
         [HttpPost("{id}/loose")]
