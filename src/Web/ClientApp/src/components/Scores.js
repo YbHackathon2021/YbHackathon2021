@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { Card, CardBody, CardTitle, Progress  } from "reactstrap";
 
-
 const Scores = () => {
     return (
         <>
