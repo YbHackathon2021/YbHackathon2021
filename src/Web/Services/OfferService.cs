@@ -14,14 +14,14 @@ namespace YbHackathon.Solutioneers.Web.Services
         {
         }
 
-        public ActionResult<Offer> Create(Offer offer)
+        public Offer Create(Offer offer)
         {
             var added = dbContext.Offers.Add(offer);
             dbContext.SaveChanges();
             return added.Entity;
         }
 
-        public ActionResult<Offer> Update(Offer offer)
+        public Offer Update(Offer offer)
         {
             var updated = dbContext.Offers.Update(offer);
             dbContext.SaveChanges();

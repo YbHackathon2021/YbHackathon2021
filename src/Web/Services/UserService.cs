@@ -18,14 +18,14 @@ namespace YbHackathon.Solutioneers.Web.Services
         {
         }
 
-        public ActionResult<User> Create(User user)
+        public User Create(User user)
         {
             var added = dbContext.InternalUsers.Add(user);
             dbContext.SaveChanges();
             return added.Entity;
         }
 
-        public new ActionResult<User> GetById(Guid id)
+        public new User GetById(Guid id)
         {
             return dbContext.InternalUsers.Where(u => u.Id == id)
                 .Include(u => u.Achievements)
@@ -33,7 +33,7 @@ namespace YbHackathon.Solutioneers.Web.Services
                 .FirstOrDefault();
         }
 
-        public ActionResult<User> Update(User user)
+        public User Update(User user)
         {
             var updated = dbContext.InternalUsers.Update(user);
             dbContext.SaveChanges();
