@@ -16,11 +16,25 @@ namespace YbHackathon.Solutioneers.Web.Services
         {
         }
 
+        public ActionResult<Challenge> Create(Challenge challenge)
+        {
+            var added = dbContext.Challenges.Add(challenge);
+            dbContext.SaveChanges();
+            return added.Entity;
+        }
+
         public new ActionResult<Challenge> GetById(Guid id)
         {
             return dbContext.Challenges.Where(c => c.Id == id)
                 .Include(c => c.Image)
                 .FirstOrDefault();
+        }
+
+        public ActionResult<Challenge> Update(Challenge challenge)
+        {
+            var updated = dbContext.Challenges.Update(challenge);
+            dbContext.SaveChanges();
+            return updated.Entity;
         }
     }
 }

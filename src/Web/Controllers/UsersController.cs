@@ -23,6 +23,13 @@ namespace YbHackathon.Solutioneers.Web.Controllers
             _httpContextAccessor = httpContextAccessor;
         }
 
+
+        [HttpPost]
+        public ActionResult<User> Create([FromBody] User user)
+        {
+            return _userService.Create(user);
+        }
+
         [HttpGet]
         public IEnumerable<User> Get()
         {
@@ -52,6 +59,12 @@ namespace YbHackathon.Solutioneers.Web.Controllers
             var user = _userService.GetByApplicationUserId(appUserId);
 
             return user;
+        }
+
+        [HttpPut]
+        public ActionResult<User> Update([FromBody] User user)
+        {
+            return _userService.Update(user);
         }
     }
 }
