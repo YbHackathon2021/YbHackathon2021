@@ -33,9 +33,9 @@ namespace YbHackathon.Solutioneers.Web.Data
             Guid GuidImageLavendel = new Guid("66E754E5-F1C5-49C4-BA80-58791913295E");
             Guid GuidImageRecycling = new Guid("6B437DCE-8B39-4C84-B2A8-1D9D401E517F");
             Guid GuidImageSolar = new Guid("6E93C6B8-FB4A-4E51-97D1-D842B8ECA69D");
-            Guid GuidImageBike = new Guid("D00A60F5-41DA-4E46-A222-86F373959AB8");
-            Guid GuidImageHeating = new Guid("DDEC456C-7199-48A7-9C2F-BBD0A02A54F9");
-            Guid GuidImagePumpkins = new Guid("9759BAF3-554F-46D9-A9EE-5515E720D6A9");
+            Guid GuidImageBike = new Guid("78B97670-B8C3-4603-BB83-36E0C86964A7");
+            Guid GuidImageHeating = new Guid("5F942D9E-4A2D-4545-A7C5-5AA46B2B33E3");
+            Guid GuidImagePumpkins = new Guid("3D093AB9-B086-44C4-B8E7-06D56DF8F395");
             Guid GuidChallenge01 = new Guid("5B2FF22E-F3D4-4BE8-867B-4532F8F285B0");
             Guid GuidChallenge02 = new Guid("5762DCB9-72C8-40C7-B4B5-EE26D5DDBD9A");
             Guid GuidChallenge03 = new Guid("68DA4EB4-F62D-4DBE-B28F-6C87332F54D4");
@@ -89,7 +89,7 @@ namespace YbHackathon.Solutioneers.Web.Data
                 new Image
                 {
                     Id = GuidImageBike,
-                    Data = (byte[])_imageConverter.ConvertTo(imageSolar, typeof(byte[]))
+                    Data = (byte[])_imageConverter.ConvertTo(ImageBike, typeof(byte[]))
                 }
             );
 
@@ -97,7 +97,7 @@ namespace YbHackathon.Solutioneers.Web.Data
                 new Image
                 {
                     Id = GuidImageHeating,
-                    Data = (byte[])_imageConverter.ConvertTo(imageSolar, typeof(byte[]))
+                    Data = (byte[])_imageConverter.ConvertTo(ImageHeating, typeof(byte[]))
                 }
             );
 
@@ -105,7 +105,7 @@ namespace YbHackathon.Solutioneers.Web.Data
                 new Image
                 {
                     Id = GuidImagePumpkins,
-                    Data = (byte[])_imageConverter.ConvertTo(imageSolar, typeof(byte[]))
+                    Data = (byte[])_imageConverter.ConvertTo(ImagePumpkins, typeof(byte[]))
                 }
             );
 
