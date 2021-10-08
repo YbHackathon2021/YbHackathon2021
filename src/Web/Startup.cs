@@ -1,3 +1,4 @@
+using System.Text.Json.Serialization;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -51,6 +52,9 @@ namespace YbHackathon.Solutioneers.Web
             });
 
             services.AddLogging();
+
+            services.AddMvc()
+                .AddJsonOptions(options => options.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter()));
 
             services.AddBusinessServices();
         }
