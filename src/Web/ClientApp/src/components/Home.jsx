@@ -37,7 +37,7 @@ export const Home = () => {
   } else {
     return (
       <>
-        <Scores />
+        <Scores userData={userData} />
         <div className="h-divider-50"></div>
         <Challenges
           userData={userData}

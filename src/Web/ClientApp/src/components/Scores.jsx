@@ -1,7 +1,8 @@
 import React from "react";
 import { Progress, Container, Row, Col } from "reactstrap";
+import colorService from "../services/colorService";
 
-export const Scores = (userData) => {
+export const Scores = ({ userData }) => {
   return (
     <>
       <Container>
@@ -9,17 +10,16 @@ export const Scores = (userData) => {
           <Col xs="8">
             <h2>Scores</h2>
 
-            <div className="text-left">Food:</div>
-            <Progress animated color="primary" value={10} />
-
-            <div className="text-left">Home:</div>
-            <Progress animated color="success" value={25} />
-
-            <div className="text-left">Travel:</div>
-            <Progress animated color="warning" value={50} />
-
-            <div className="text-left">Stuff:</div>
-            <Progress animated color="danger" value={75} />
+            {userData.scores.map((score) => (
+              <React.Fragment>
+                <div className="text-left">{score.topic}:</div>
+                <Progress
+                  animated
+                  color={colorService.getColorByTopic(score.topic)}
+                  value={score.currentScore}
+                />
+              </React.Fragment>
+            ))}
           </Col>
           <Col xs="4">
             <h3>Achievements</h3>
