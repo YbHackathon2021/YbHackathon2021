@@ -1,13 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Linq.Expressions;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using YbHackathon.Solutioneers.Web.Data;
 using YbHackathon.Solutioneers.Web.Models;
 using YbHackathon.Solutioneers.Web.Services.Interfaces;
+using Enum = YbHackathon.Solutioneers.Web.Models.Enum;
 
 namespace YbHackathon.Solutioneers.Web.Services
 {
@@ -18,14 +18,14 @@ namespace YbHackathon.Solutioneers.Web.Services
         {
         }
 
-        public ActionResult<User> Create(User user)
+        public User Create(User user)
         {
             var added = dbContext.InternalUsers.Add(user);
             dbContext.SaveChanges();
             return added.Entity;
         }
 
-        public new ActionResult<User> GetById(Guid id)
+        public new User GetById(Guid id)
         {
             return dbContext.InternalUsers.Where(u => u.Id == id)
                 .Include(u => u.Achievements)
@@ -33,11 +33,54 @@ namespace YbHackathon.Solutioneers.Web.Services
                 .FirstOrDefault();
         }
 
-        public ActionResult<User> Update(User user)
+        public User GetByApplicationUserId(string id)
+        {
+            var user = dbContext.InternalUsers.FirstOrDefault(iu => iu.ApplicationUserId == id);
+            if (user != null) return user;
+
+            var addedUser = dbContext.InternalUsers.Add(CreateInitial(id));
+
+            dbContext.SaveChanges();
+
+            return addedUser.Entity;
+        }
+
+        public User Update(User user)
         {
             var updated = dbContext.InternalUsers.Update(user);
             dbContext.SaveChanges();
             return updated.Entity;
+        }
+
+        private User CreateInitial(string id)
+        {
+            return new User
+            {
+                ApplicationUserId = id,
+                Scores = new List<Score>
+                {
+                    new Score
+                    {
+                        Topic = Enum.Topic.Food,
+                        CurrentScore = 0
+                    },
+                    new Score
+                    {
+                        Topic = Enum.Topic.Home,
+                        CurrentScore = 0
+                    },
+                    new Score
+                    {
+                        Topic = Enum.Topic.Stuff,
+                        CurrentScore = 0
+                    },
+                    new Score
+                    {
+                        Topic = Enum.Topic.Travel,
+                        CurrentScore = 0
+                    }
+                }
+            };
         }
     }
 }

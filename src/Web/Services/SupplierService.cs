@@ -14,14 +14,14 @@ namespace YbHackathon.Solutioneers.Web.Services
         {
         }
 
-        public ActionResult<Supplier> Create(Supplier supplier)
+        public Supplier Create(Supplier supplier)
         {
             var added = dbContext.Suppliers.Add(supplier);
             dbContext.SaveChanges();
             return added.Entity;
         }
 
-        public ActionResult<Supplier> Update(Supplier supplier)
+        public Supplier Update(Supplier supplier)
         {
             var updated = dbContext.Suppliers.Update(supplier);
             dbContext.SaveChanges();

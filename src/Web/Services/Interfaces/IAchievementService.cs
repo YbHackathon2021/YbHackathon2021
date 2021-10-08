@@ -5,7 +5,7 @@ namespace YbHackathon.Solutioneers.Web.Services.Interfaces
 {
     public interface IAchievementService : IBaseService<Achievement>
     {
-        ActionResult<Achievement> Update(Achievement achievement);
-        ActionResult<Achievement> Create(Achievement achievement);
+        Achievement Update(Achievement achievement);
+        Achievement Create(Achievement achievement);
     }
 }

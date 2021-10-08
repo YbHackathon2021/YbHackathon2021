@@ -31,6 +31,12 @@ namespace YbHackathon.Solutioneers.Web.Controllers
             return _challengeService.GetAll();
         }
 
+        [HttpGet("userNotStarted")]
+        public IEnumerable<Challenge> GetAllNotStartedByCurrentUser()
+        {
+            return _challengeService.GetAllNotStartedByCurrentUser();
+        }
+
         [HttpGet("{id}")]
         public ActionResult<Challenge> GetById([FromQuery] Guid id)
         {

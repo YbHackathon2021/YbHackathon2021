@@ -11,6 +11,6 @@ namespace YbHackathon.Solutioneers.Web.Services.Interfaces
     {
         IList<TEntity> GetAll();
         IList<TEntity> GetAll(Expression<Func<TEntity, bool>> filter);
-        ActionResult<TEntity> GetById(Guid id);
+        TEntity GetById(Guid id);
     }
 }

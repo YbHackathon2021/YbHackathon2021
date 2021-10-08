@@ -6,7 +6,7 @@ namespace YbHackathon.Solutioneers.Web.Services.Interfaces
 {
     public interface IScoreService : IBaseService<Score>
     {
-        ActionResult<Score> Update(Score score);
-        ActionResult<Score> Create(Score score);
+        Score Update(Score score);
+        Score Create(Score score);
     }
 }

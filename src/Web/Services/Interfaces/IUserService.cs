@@ -5,7 +5,8 @@ namespace YbHackathon.Solutioneers.Web.Services.Interfaces
 {
     public interface IUserService : IBaseService<User>
     {
-        ActionResult<User> Update(User user);
-        ActionResult<User> Create(User user);
+        User GetByApplicationUserId(string id);
+        User Update(User user);
+        User Create(User user);
     }
 }

@@ -2,8 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
-using AutoMapper;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using YbHackathon.Solutioneers.Web.Data;
 using YbHackathon.Solutioneers.Web.Models;
@@ -32,7 +30,7 @@ namespace YbHackathon.Solutioneers.Web.Services
             return dbContext.Set<TEntity>().Where(filter).ToList();
         }
 
-        public ActionResult<TEntity> GetById(Guid id)
+        public TEntity GetById(Guid id)
         {
             return dbContext.Find<TEntity>(id);
         }

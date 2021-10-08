@@ -6,7 +6,7 @@ namespace YbHackathon.Solutioneers.Web.Services.Interfaces
 {
     public interface ISupplierService : IBaseService<Supplier>
     {
-        ActionResult<Supplier> Update(Supplier supplier);
-        ActionResult<Supplier> Create(Supplier supplier);
+        Supplier Update(Supplier supplier);
+        Supplier Create(Supplier supplier);
     }
 }

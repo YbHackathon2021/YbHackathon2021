@@ -5,7 +5,7 @@ namespace YbHackathon.Solutioneers.Web.Services.Interfaces
 {
     public interface IOfferService : IBaseService<Offer>
     {
-        ActionResult<Offer> Update(Offer offer);
-        ActionResult<Offer> Create(Offer offer);
+        Offer Update(Offer offer);
+        Offer Create(Offer offer);
     }
 }
