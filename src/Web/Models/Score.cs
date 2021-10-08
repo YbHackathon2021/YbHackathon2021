@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using static YbHackathon.Solutioneers.Web.Models.Enum;
+﻿using static YbHackathon.Solutioneers.Web.Models.Enum;
 
 namespace YbHackathon.Solutioneers.Web.Models
 {
