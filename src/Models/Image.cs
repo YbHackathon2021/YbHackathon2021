@@ -6,14 +6,8 @@ using System.Threading.Tasks;
 
 namespace YbHackathon.Solutioneers.Models
 {
-    public static class Enum
+    public class Image : BaseEntity
     {
-        public enum Topic
-        {
-            Food,
-            Home,
-            Travel,
-            Stuff
-        }
+        public byte[] Data { get; set; }
     }
 }

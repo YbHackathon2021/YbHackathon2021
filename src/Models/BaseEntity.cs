@@ -6,11 +6,8 @@ using System.Threading.Tasks;
 
 namespace YbHackathon.Solutioneers.Models
 {
-    class Supplier
+    public abstract class BaseEntity
     {
         public Guid Id { get; set; }
-        public string Name { get; set; }
-        public string Email { get; set; }
-        public Image Logo { get; set; }
     }
 }

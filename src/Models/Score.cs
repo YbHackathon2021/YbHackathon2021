@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using static Models.Enum;
+using static YbHackathon.Solutioneers.Models.Enum;
 
-namespace Models
+namespace YbHackathon.Solutioneers.Models
 {
     public class Score
     {
