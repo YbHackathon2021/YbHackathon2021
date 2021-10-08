@@ -15,5 +15,12 @@ namespace YbHackathon.Solutioneers.Web.Models
             Travel,
             Stuff
         }
+
+        public enum UserChallengeState
+        {
+            open,
+            won,
+            lost
+        }
     }
 }

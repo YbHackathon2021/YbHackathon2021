@@ -8,8 +8,7 @@ namespace YbHackathon.Solutioneers.Web.Models
 {
     public class Achievement : BaseEntity
     {
-        public Challenge Challenge { get; set; }
-        public int PointsEarned { get; set; }
+        public string Title { get; set; }
         public DateTime Date { get; set; }
     }
 }
