@@ -1,4 +1,4 @@
-import authService from "./components/api-authorization/AuthorizeService";
+import authService from "./authorizeService";
 
 export class ApiClient {
   async fetchUser() {

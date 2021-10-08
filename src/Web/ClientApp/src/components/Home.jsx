@@ -3,7 +3,7 @@ import { ChallengeDetails } from "./ChallengeDetails";
 import { Challenges } from "./Challenges";
 import { Scores } from "./Scores";
 import { Spinner } from "reactstrap";
-import apiClient from "../apiClient";
+import apiClient from "../services/apiClient";
 
 export const Home = () => {
   const [selectedChallenge, setSelectedChallenge] = useState(undefined);
