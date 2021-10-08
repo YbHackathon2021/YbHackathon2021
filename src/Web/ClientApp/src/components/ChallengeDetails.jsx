@@ -1,5 +1,5 @@
 import React from "react";
-import { Button } from "reactstrap";
+import { Button, Jumbotron } from "reactstrap";
 import colorService from "../services/colorService";
 
 export const ChallengeDetails = ({ challenge, onClose, isActive }) => {
@@ -7,7 +7,11 @@ export const ChallengeDetails = ({ challenge, onClose, isActive }) => {
   const color = colorService.getColorByTopic(challenge.topic);
   return (
     <>
-      <h2>{challenge.title}</h2>
+      <Jumbotron>
+        <h1 className="display-3">{challenge.title}</h1>
+        <hr className="my-2" />
+        <p className="lead">{challenge.description}</p>
+      </Jumbotron>
 
       {isActive ? (
         <Button style={buttonStyle} onClick={onClose} color={color}>
