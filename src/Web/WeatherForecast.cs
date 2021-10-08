@@ -1,6 +1,6 @@
 using System;
 
-namespace Web
+namespace YbHackathon.Solutioneers.Web
 {
     public class WeatherForecast
     {
