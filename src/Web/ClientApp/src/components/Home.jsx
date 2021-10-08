@@ -25,13 +25,14 @@ export const Home = () => {
   }, [selectedChallenge]);
 
   const accept = async () => {
-    console.log(selectedChallenge.challenge);
-
     await apiClient.acceptChallenge(selectedChallenge.challenge.id);
     setSelectedChallenge(undefined);
   };
 
-  const complete = () => {};
+  const complete = async () => {
+    await apiClient.completeChallenge(selectedChallenge.challenge.id);
+    setSelectedChallenge(undefined);
+  };
 
   if (isLoading) {
     return <Spinner type="grow" color="info" />;
@@ -46,6 +47,8 @@ export const Home = () => {
       />
     );
   } else {
+    console.log(userData);
+
     return (
       <>
         <Scores userData={userData} />
