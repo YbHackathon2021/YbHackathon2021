@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace YbHackathon.Solutioneers.Web.Models
 {
-    class Supplier : BaseEntity
+    public class Supplier : BaseEntity
     {
         public string Name { get; set; }
         public string Email { get; set; }
