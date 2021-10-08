@@ -2,7 +2,7 @@
 
 namespace YbHackathon.Solutioneers.Web.Services.Interfaces
 {
-    public interface IAchievementService : IBaseService<Achievement, Achievement>
+    public interface IOfferService : IBaseService<Offer, Offer>
     {
     }
 }

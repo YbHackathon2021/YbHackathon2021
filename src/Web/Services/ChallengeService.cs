@@ -6,9 +6,9 @@ using YbHackathon.Solutioneers.Web.Services.Interfaces;
 
 namespace YbHackathon.Solutioneers.Web.Services
 {
-    public class AchievementService : BaseService<Achievement, Achievement>, IAchievementService
+    public class ChallengeService : BaseService<Challenge, Challenge>, IChallengeService
     {
-        public AchievementService(ApplicationDbContext dbContext, IMapper mapper, ILogger logger) : 
+        public ChallengeService(ApplicationDbContext dbContext, IMapper mapper, ILogger logger) : 
             base(dbContext, mapper, logger)
         {
         }
