@@ -35,7 +35,10 @@ namespace YbHackathon.Solutioneers.Web.Services
 
         public User GetByApplicationUserId(string id)
         {
-            var user = dbContext.InternalUsers.FirstOrDefault(iu => iu.ApplicationUserId == id);
+            var user = dbContext.InternalUsers
+                .Include(u => u.Achievements)
+                .Include(u => u.Scores)
+                .FirstOrDefault(iu => iu.ApplicationUserId == id);
             if (user != null) return user;
 
             var addedUser = dbContext.InternalUsers.Add(CreateInitial(id));
