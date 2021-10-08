@@ -8,5 +8,7 @@ namespace YbHackathon.Solutioneers.Web.Models
 {
     public class ApplicationUser : IdentityUser
     {
+        public List<Achievement> Achievements { get; set; }
+        public List<Score> Scores { get; set; }
     }
 }
