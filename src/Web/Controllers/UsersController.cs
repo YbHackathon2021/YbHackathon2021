@@ -23,7 +23,6 @@ namespace YbHackathon.Solutioneers.Web.Controllers
             _httpContextAccessor = httpContextAccessor;
         }
 
-
         [HttpPost]
         public ActionResult<User> Create([FromBody] User user)
         {
