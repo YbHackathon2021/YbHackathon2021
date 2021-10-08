@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Linq.Expressions;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
@@ -26,7 +24,7 @@ namespace YbHackathon.Solutioneers.Web.Services
                 .FirstOrDefault();
         }
 
-        public ActionResult<User> GetByApplicationUserId(string id)
+        public User GetByApplicationUserId(string id)
         {
             var user = dbContext.InternalUsers.FirstOrDefault(iu => iu.ApplicationUserId == id);
             if (user != null) return user;
@@ -35,6 +33,7 @@ namespace YbHackathon.Solutioneers.Web.Services
             {
                 ApplicationUserId = id
             });
+
             dbContext.SaveChanges();
 
             user = addedUser.Entity;

@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using YbHackathon.Solutioneers.Web.Extensions;
 using YbHackathon.Solutioneers.Web.Models;
 using YbHackathon.Solutioneers.Web.Services.Interfaces;
 
@@ -13,10 +15,12 @@ namespace YbHackathon.Solutioneers.Web.Controllers
     public class UsersController : ControllerBase
     {
         private readonly IUserService _userService;
+        private readonly IHttpContextAccessor _httpContextAccessor;
 
-        public UsersController(IUserService userService)
+        public UsersController(IUserService userService, IHttpContextAccessor httpContextAccessor)
         {
             _userService = userService;
+            _httpContextAccessor = httpContextAccessor;
         }
 
         [HttpGet]
@@ -34,6 +38,18 @@ namespace YbHackathon.Solutioneers.Web.Controllers
             {
                 return NotFound();
             }
+
+            return user;
+        }
+
+        [HttpGet("current")]
+        public User GetCurrentUser()
+        {
+            var identity = _httpContextAccessor.HttpContext.User;
+
+            var appUserId = identity.GetId();
+
+            var user = _userService.GetByApplicationUserId(appUserId);
 
             return user;
         }
