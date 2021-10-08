@@ -24,13 +24,13 @@ export const Home = () => {
     fetchData().catch(console.error);
   }, [selectedChallenge]);
 
-  const accept = async () => {
-    await apiClient.acceptChallenge(selectedChallenge.challenge.id);
+  const accept = async (challengeId) => {
+    await apiClient.acceptChallenge(challengeId);
     setSelectedChallenge(undefined);
   };
 
-  const complete = async () => {
-    await apiClient.completeChallenge(selectedChallenge.challenge.id);
+  const complete = async (userChallengeId) => {
+    await apiClient.completeChallenge(userChallengeId);
     setSelectedChallenge(undefined);
   };
 
@@ -39,6 +39,7 @@ export const Home = () => {
   } else if (selectedChallenge) {
     return (
       <ChallengeDetails
+        userChallengeId={selectedChallenge.userChallengeId}
         challenge={selectedChallenge.challenge}
         isActive={selectedChallenge.isActive}
         onAccept={accept}
@@ -55,11 +56,18 @@ export const Home = () => {
         <div className="h-divider-50"></div>
         <Challenges
           userData={userData}
-          onActiveChallengeSelected={(challenge) =>
-            setSelectedChallenge({ challenge, isActive: true })
+          onActiveChallengeSelected={(challenge, userChallengeId) =>
+            setSelectedChallenge({
+              challenge,
+              isActive: true,
+              userChallengeId: userChallengeId,
+            })
           }
           onNewChallengeSelected={(challenge) =>
-            setSelectedChallenge({ challenge, isActive: false })
+            setSelectedChallenge({
+              challenge,
+              isActive: false,
+            })
           }
         />
       </>

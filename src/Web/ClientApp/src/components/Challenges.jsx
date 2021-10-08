@@ -15,7 +15,9 @@ export const Challenges = ({
         <ChallengeCard
           key={userChallenge.challenge.id}
           challenge={userChallenge.challenge}
-          onSelected={() => onActiveChallengeSelected(userChallenge.challenge)}
+          onSelected={() =>
+            onActiveChallengeSelected(userChallenge.challenge, userChallenge.id)
+          }
         />
       ))}
     <div className="h-divider-50"></div>

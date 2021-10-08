@@ -3,6 +3,7 @@ import { Button, Jumbotron } from "reactstrap";
 import colorService from "../services/colorService";
 
 export const ChallengeDetails = ({
+  userChallengeId,
   challenge,
   onAccept,
   onComplete,
@@ -23,11 +24,19 @@ export const ChallengeDetails = ({
       <img style={{ width: "100%" }} src={image} alt={challenge.topic}></img>
 
       {isActive ? (
-        <Button style={buttonStyle} onClick={onComplete} color={color}>
+        <Button
+          style={buttonStyle}
+          onClick={() => onComplete(userChallengeId)}
+          color={color}
+        >
           Complete Challenge
         </Button>
       ) : (
-        <Button style={buttonStyle} onClick={onAccept} color={color}>
+        <Button
+          style={buttonStyle}
+          onClick={() => onAccept(challenge.id)}
+          color={color}
+        >
           Accept Challenge
         </Button>
       )}
