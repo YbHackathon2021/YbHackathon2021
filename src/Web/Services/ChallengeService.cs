@@ -13,7 +13,7 @@ namespace YbHackathon.Solutioneers.Web.Services
     {
         private readonly IUserChallengeService _userChallengeService;
 
-        public ChallengeService(ApplicationDbContext dbContext, ILogger<ChallengeService> logger, IUserChallengeService userChallengeService) : 
+        public ChallengeService(ApplicationDbContext dbContext, ILogger<ChallengeService> logger, IUserChallengeService userChallengeService) :
             base(dbContext, logger)
         {
             _userChallengeService = userChallengeService;
@@ -42,9 +42,8 @@ namespace YbHackathon.Solutioneers.Web.Services
 
         public IEnumerable<Challenge> GetAllNotStartedByCurrentUser(Guid userId)
         {
-            var startedChallenges = _userChallengeService.GetAllByUserId(userId).Select(uc => uc.Challenge);
-
-            return dbContext.Challenges.Include(c => c.Image).Where(c => !startedChallenges.Any(sc => sc.Id == c.Id));
+            var startedChallengesIds = _userChallengeService.GetAllByUserId(userId).Select(uc => uc.Challenge.Id);
+            return dbContext.Challenges.Include(c => c.Image).Where(c => !startedChallengesIds.Contains(c.Id));
         }
     }
 }
