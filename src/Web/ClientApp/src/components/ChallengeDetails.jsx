@@ -5,6 +5,8 @@ import colorService from "../services/colorService";
 export const ChallengeDetails = ({ challenge, onClose, isActive }) => {
   const buttonStyle = { width: "100%", height: "80px", fontSize: "20px" };
   const color = colorService.getColorByTopic(challenge.topic);
+  const image = `data:image/png;base64,${challenge.image.data}`;
+
   return (
     <>
       <Jumbotron>
@@ -12,6 +14,7 @@ export const ChallengeDetails = ({ challenge, onClose, isActive }) => {
         <hr className="my-2" />
         <p className="lead">{challenge.description}</p>
       </Jumbotron>
+      <img style={{ width: "100%" }} src={image} alt={challenge.topic}></img>
 
       {isActive ? (
         <Button style={buttonStyle} onClick={onClose} color={color}>
