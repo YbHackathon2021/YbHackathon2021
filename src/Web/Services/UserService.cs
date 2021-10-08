@@ -31,6 +31,7 @@ namespace YbHackathon.Solutioneers.Web.Services
                 .Include(u => u.Achievements)
                 .Include(u => u.Scores)
                 .Include(u => u.UserChallenges)
+                .ThenInclude(uc => uc.Challenge)
                 .FirstOrDefault();
         }
 
@@ -40,6 +41,7 @@ namespace YbHackathon.Solutioneers.Web.Services
                 .Include(u => u.Achievements)
                 .Include(u => u.Scores)
                 .Include(u => u.UserChallenges)
+                .ThenInclude(uc => uc.Challenge)
                 .FirstOrDefault(iu => iu.ApplicationUserId == id);
             if (user != null) return user;
 
