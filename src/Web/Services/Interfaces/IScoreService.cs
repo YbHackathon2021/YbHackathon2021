@@ -3,7 +3,7 @@ using YbHackathon.Solutioneers.Web.Models;
 
 namespace YbHackathon.Solutioneers.Web.Services.Interfaces
 {
-    public interface IScoreService : IBaseService<Score, Score>
+    public interface IScoreService : IBaseService<Score>
     {
     }
 }
