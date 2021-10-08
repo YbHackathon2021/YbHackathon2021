@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Linq;
-using System.Reflection;
 using Microsoft.Extensions.DependencyInjection;
 using YbHackathon.Solutioneers.Web.Services;
 using YbHackathon.Solutioneers.Web.Services.Interfaces;
