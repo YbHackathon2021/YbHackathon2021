@@ -13,7 +13,7 @@ namespace YbHackathon.Solutioneers.Web.Services
 {
     public class UserService : BaseService<User>, IUserService
     {
-        public UserService(ApplicationDbContext dbContext, ILogger<UserService> logger) : 
+        public UserService(ApplicationDbContext dbContext, ILogger<UserService> logger) :
             base(dbContext, logger)
         {
         }
@@ -42,6 +42,7 @@ namespace YbHackathon.Solutioneers.Web.Services
                 .Include(u => u.Scores)
                 .Include(u => u.UserChallenges)
                 .ThenInclude(uc => uc.Challenge)
+                .ThenInclude(c => c.Image)
                 .FirstOrDefault(iu => iu.ApplicationUserId == id);
             if (user != null) return user;
 
