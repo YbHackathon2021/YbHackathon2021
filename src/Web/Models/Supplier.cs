@@ -4,12 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Models
+namespace YbHackathon.Solutioneers.Web.Models
 {
-    class Supplier
+    class Supplier : BaseEntity
     {
-        public Guid Id { get; set; }
         public string Name { get; set; }
         public string Email { get; set; }
+        public Image Logo { get; set; }
     }
 }

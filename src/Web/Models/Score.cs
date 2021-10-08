@@ -3,13 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using static Models.Enum;
+using static YbHackathon.Solutioneers.Web.Models.Enum;
 
-namespace Models
+namespace YbHackathon.Solutioneers.Web.Models
 {
-    public class Score
+    public class Score : BaseEntity
     {
-        public Guid Id { get; set; }
         public Topic Topic { get; set; }
         public int CurrentScore { get; set; }
     }
