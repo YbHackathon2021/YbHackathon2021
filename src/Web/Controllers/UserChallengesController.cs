@@ -26,7 +26,7 @@ namespace YbHackathon.Solutioneers.Web.Controllers
         }
 
         [HttpPost("challenge/{challengeId}")]
-        public ActionResult<UserChallenge> Accept([FromQuery] Guid challengeId)
+        public ActionResult<UserChallenge> Accept([FromRoute] Guid challengeId)
         {
             var identity = _httpContextAccessor.HttpContext.User;
 
@@ -38,7 +38,7 @@ namespace YbHackathon.Solutioneers.Web.Controllers
         }
 
         [HttpPost("{id}/loose")]
-        public ActionResult<UserChallenge> Loose([FromQuery] Guid id)
+        public ActionResult<UserChallenge> Loose([FromRoute] Guid id)
         {
             try
             {
@@ -51,7 +51,7 @@ namespace YbHackathon.Solutioneers.Web.Controllers
         }
 
         [HttpPost("{id}/win")]
-        public ActionResult<UserChallenge> WinChallenge([FromQuery] Guid id)
+        public ActionResult<UserChallenge> WinChallenge([FromRoute] Guid id)
         {
             try
             {

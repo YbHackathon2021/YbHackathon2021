@@ -36,7 +36,7 @@ namespace YbHackathon.Solutioneers.Web.Controllers
         }
 
         [HttpGet("{id}")]
-        public ActionResult<User> GetById([FromQuery] Guid id)
+        public ActionResult<User> GetById([FromRoute] Guid id)
         {
             var user = _userService.GetById(id);
 
