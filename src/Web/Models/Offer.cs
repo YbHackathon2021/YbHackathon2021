@@ -13,6 +13,7 @@ namespace YbHackathon.Solutioneers.Web.Models
         public Topic Topic { get; set; }
         public string Title { get; set; }
         public string Description { get; set; }
+        public Guid ImageId { get; set; }
         public Image Image { get; set; }
         public int SustainabilityRank { get; set; }
         public DateTime ValidFrom { get; set; }

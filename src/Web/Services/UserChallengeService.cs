@@ -12,14 +12,9 @@ namespace YbHackathon.Solutioneers.Web.Services
 {
     public class UserChallengeService : BaseService<UserChallenge>, IUserChallengeService
     {
-        private readonly IChallengeService _challengeService;
-        private readonly IUserService _userService;
-
-        public UserChallengeService(ApplicationDbContext dbContext, ILogger<UserChallengeService> logger, IChallengeService challengeService, IUserService userService) : 
+        public UserChallengeService(ApplicationDbContext dbContext, ILogger<UserChallengeService> logger) : 
             base(dbContext, logger)
         {
-            _challengeService = challengeService;
-            _userService = userService;
         }
 
         public UserChallenge Accept(Guid userId, Guid challengeId)
@@ -27,9 +22,9 @@ namespace YbHackathon.Solutioneers.Web.Services
             var userChallenge = new UserChallenge
             { 
                 AcceptedAt = DateTime.Now,
-                Challenge = _challengeService.GetById(userId),
+                ChallengeId = challengeId,
                 State = Models.Enum.UserChallengeState.open,
-                User = _userService.GetById(userId)
+                UserId = userId
             };
             var added = dbContext.UserChallenges.Add(userChallenge);
             dbContext.SaveChanges();
