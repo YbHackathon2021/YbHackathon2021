@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using YbHackathon.Solutioneers.Web.Models;
@@ -14,23 +12,23 @@ namespace YbHackathon.Solutioneers.Web.Controllers
     [Route("[controller]")]
     public class UsersController : ControllerBase
     {
-        private readonly IUserService userService;
+        private readonly IUserService _userService;
 
         public UsersController(IUserService userService)
         {
-            this.userService = userService;
+            _userService = userService;
         }
 
         [HttpGet]
         public IEnumerable<User> Get()
         {
-            return userService.GetAll();
+            return _userService.GetAll();
         }
 
         [HttpGet("{id}")]
         public ActionResult<User> GetById([FromQuery] Guid id)
         {
-            return userService.GetById(id);
+            return _userService.GetById(id);
         }
     }
 }
