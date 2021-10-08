@@ -23,7 +23,7 @@ namespace YbHackathon.Solutioneers.Web.Services
             return dbContext.InternalUsers.Where(u => u.Id == id)
                 .Include(u => u.Achievements)
                 .Include(u => u.Scores)
-                .First();
+                .FirstOrDefault();
         }
     }
 }

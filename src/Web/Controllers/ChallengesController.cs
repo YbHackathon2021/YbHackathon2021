@@ -28,7 +28,13 @@ namespace YbHackathon.Solutioneers.Web.Controllers
         [HttpGet("{id}")]
         public ActionResult<Challenge> GetById([FromQuery] Guid id)
         {
-            return _challengeService.GetById(id);
+            var challenge = _challengeService.GetById(id);
+            if (challenge == null)
+            {
+                return NotFound();
+            }
+
+            return challenge;
         }
     }
 }
