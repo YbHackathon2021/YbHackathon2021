@@ -30,6 +30,7 @@ namespace YbHackathon.Solutioneers.Web.Services
             return dbContext.InternalUsers.Where(u => u.Id == id)
                 .Include(u => u.Achievements)
                 .Include(u => u.Scores)
+                .Include(u => u.UserChallenges)
                 .FirstOrDefault();
         }
 
@@ -38,6 +39,7 @@ namespace YbHackathon.Solutioneers.Web.Services
             var user = dbContext.InternalUsers
                 .Include(u => u.Achievements)
                 .Include(u => u.Scores)
+                .Include(u => u.UserChallenges)
                 .FirstOrDefault(iu => iu.ApplicationUserId == id);
             if (user != null) return user;
 
