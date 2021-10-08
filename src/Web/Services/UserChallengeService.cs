@@ -53,14 +53,22 @@ namespace YbHackathon.Solutioneers.Web.Services
 
         public UserChallenge Win(Guid userChallengeId)
         {
-            var userChallenge = dbContext.UserChallenges.Find(userChallengeId);
+            var userChallenge = dbContext.UserChallenges
+                .Include(uc => uc.Challenge)
+                .Include(uc => uc.User)
+                .ThenInclude(u => u.Scores)
+                .FirstOrDefault(uc => uc.Id == userChallengeId);
             if (userChallenge == null)
             {
                 throw new EntityNotFoundException();
             }
 
             userChallenge.State = Models.Enum.UserChallengeState.won;
+            var score = userChallenge.User.Scores.First(s => s.Topic == userChallenge.Challenge.Topic);
+            score.CurrentScore += userChallenge.Challenge.PointsToEarn;
+
             dbContext.SaveChanges();
+
             return userChallenge;
         }
     }
