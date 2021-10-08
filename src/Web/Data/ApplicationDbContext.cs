@@ -22,5 +22,12 @@ namespace YbHackathon.Solutioneers.Web.Data
             IOptions<OperationalStoreOptions> operationalStoreOptions) : base(options, operationalStoreOptions)
         {
         }
+
+        protected override void OnModelCreating(ModelBuilder builder)
+        {
+            base.OnModelCreating(builder);
+
+            // TODO - add seed here
+        }
     }
 }
