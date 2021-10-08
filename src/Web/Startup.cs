@@ -39,6 +39,8 @@ namespace YbHackathon.Solutioneers.Web
             services.AddAuthentication()
                 .AddIdentityServerJwt();
 
+            services.AddHttpContextAccessor();
+
             services.AddControllersWithViews();
             services.AddRazorPages();
 

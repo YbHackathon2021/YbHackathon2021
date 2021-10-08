@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Linq.Expressions;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
@@ -31,6 +29,23 @@ namespace YbHackathon.Solutioneers.Web.Services
                 .Include(u => u.Achievements)
                 .Include(u => u.Scores)
                 .FirstOrDefault();
+        }
+
+        public User GetByApplicationUserId(string id)
+        {
+            var user = dbContext.InternalUsers.FirstOrDefault(iu => iu.ApplicationUserId == id);
+            if (user != null) return user;
+
+            var addedUser = dbContext.InternalUsers.Add(new User
+            {
+                ApplicationUserId = id
+            });
+
+            dbContext.SaveChanges();
+
+            user = addedUser.Entity;
+
+            return user;
         }
 
         public User Update(User user)

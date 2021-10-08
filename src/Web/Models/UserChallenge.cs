@@ -12,7 +12,7 @@ namespace YbHackathon.Solutioneers.Web.Models
         public Challenge Challenge { get; set; }
         public UserChallengeState State { get; set; }
         public DateTime AcceptedAt { get; set; }
-        public DateTime ClosedAt { get; set; }
+        public DateTime? ClosedAt { get; set; }
 
     }
 }

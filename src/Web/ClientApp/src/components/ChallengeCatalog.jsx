@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Spinner, Carousel, CarouselControl, CarouselItem } from "reactstrap";
+import apiClient from "../services/apiClient";
 import { ChallengeCard } from "./ChallengeCard";
 
 export const ChallengeCatalog = ({ onShowChallengeDetails }) => {
@@ -11,44 +12,7 @@ export const ChallengeCatalog = ({ onShowChallengeDetails }) => {
   useEffect(() => {
     // declare the async data fetching function
     const fetchData = async () => {
-      const data = [
-        {
-          id: "abcd",
-          topic: "Travel",
-          title: "Travel Challenge",
-          Description: "",
-          PointsToEarn: 2,
-          OpenFrom: "",
-          OpenTo: "",
-        },
-        {
-          id: "abcd3",
-          topic: "Food",
-          title: "Food Challenge",
-          Description: "",
-          PointsToEarn: 2,
-          OpenFrom: "",
-          OpenTo: "",
-        },
-        {
-          id: "abcd2",
-          topic: "Home",
-          title: "Home Challenge",
-          Description: "",
-          PointsToEarn: 2,
-          OpenFrom: "",
-          OpenTo: "",
-        },
-        {
-          id: "abcd1",
-          topic: "Stuff",
-          title: "Challenge",
-          Description: "",
-          PointsToEarn: 2,
-          OpenFrom: "",
-          OpenTo: "",
-        },
-      ];
+      const data = await apiClient.fetchChallenges();
 
       // set state with the result
       setChallenges(data);
