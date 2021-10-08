@@ -25,5 +25,21 @@ namespace YbHackathon.Solutioneers.Web.Services
                 .Include(u => u.Scores)
                 .FirstOrDefault();
         }
+
+        public ActionResult<User> GetByApplicationUserId(string id)
+        {
+            var user = dbContext.InternalUsers.FirstOrDefault(iu => iu.ApplicationUserId == id);
+            if (user != null) return user;
+
+            var addedUser = dbContext.InternalUsers.Add(new User
+            {
+                ApplicationUserId = id
+            });
+            dbContext.SaveChanges();
+
+            user = addedUser.Entity;
+
+            return user;
+        }
     }
 }
