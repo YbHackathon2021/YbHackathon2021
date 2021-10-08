@@ -81,6 +81,31 @@ export class ApiClient {
 
     return data;
   }
+
+  async fetchChallenges() {
+    const data = [
+      {
+        id: "abcd",
+        topic: "Travel",
+        title: "Travel Challenge",
+        description: "",
+        pointsToEarn: 2,
+        openFrom: "",
+        openTo: "",
+      },
+      {
+        id: "abcd3",
+        topic: "Food",
+        title: "Food Challenge",
+        description: "",
+        pointsToEarn: 2,
+        openFrom: "",
+        openTo: "",
+      },
+    ];
+
+    return data;
+  }
 }
 
 const apiClient = new ApiClient();
