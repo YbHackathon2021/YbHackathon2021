@@ -1,5 +1,5 @@
 import React from "react";
-import { Progress, Container, Row, Col } from "reactstrap";
+import { Progress, Container, Row, Col, Badge } from "reactstrap";
 
 export const Scores = () => {
   return (
@@ -23,7 +23,9 @@ export const Scores = () => {
                 </Col>
                 <Col xs="4">
                       <h3>Achievements</h3>
-                      ...
+                      <Badge color="primary" pill style={{ marginLeft: "10", marginRight: "2" }}>Beginner</Badge>
+                      <Badge color="warning" pill style={{ marginLeft: "2", marginRight: "2" }}>Master</Badge>
+                      <Badge color="danger" pill style={{ marginLeft: "2", marginRight: "2" }}>Guru</Badge>
                       <h3>Friends</h3>
                       ...
                 </Col>
