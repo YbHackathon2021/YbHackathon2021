@@ -19,6 +19,13 @@ namespace YbHackathon.Solutioneers.Web.Controllers
             _userService = userService;
         }
 
+
+        [HttpPost]
+        public ActionResult<User> Create([FromBody] User user)
+        {
+            return _userService.Create(user);
+        }
+
         [HttpGet]
         public IEnumerable<User> Get()
         {
@@ -36,6 +43,12 @@ namespace YbHackathon.Solutioneers.Web.Controllers
             }
 
             return user;
+        }
+
+        [HttpPut]
+        public ActionResult<User> Update([FromBody] User user)
+        {
+            return _userService.Update(user);
         }
     }
 }

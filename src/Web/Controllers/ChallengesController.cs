@@ -19,6 +19,12 @@ namespace YbHackathon.Solutioneers.Web.Controllers
             _challengeService = challengeService;
         }
 
+        [HttpPost]
+        public ActionResult<Challenge> Create([FromBody] Challenge challenge)
+        {
+            return _challengeService.Create(challenge);
+        }
+
         [HttpGet]
         public IEnumerable<Challenge> Get()
         {
@@ -35,6 +41,12 @@ namespace YbHackathon.Solutioneers.Web.Controllers
             }
 
             return challenge;
+        }
+
+        [HttpPut]
+        public ActionResult<Challenge> Update([FromBody] Challenge challenge)
+        {
+            return _challengeService.Update(challenge);
         }
     }
 }
