@@ -2,8 +2,8 @@ import React, { useState, useEffect } from "react";
 import { ChallengeDetails } from "./ChallengeDetails";
 import { Challenges } from "./Challenges";
 import { Scores } from "./Scores";
-import authService from "./api-authorization/AuthorizeService";
 import { Spinner } from "reactstrap";
+import apiClient from "../services/apiClient";
 
 export const Home = () => {
   const [selectedChallenge, setSelectedChallenge] = useState(undefined);
@@ -13,52 +13,7 @@ export const Home = () => {
   useEffect(() => {
     // declare the async data fetching function
     const fetchData = async () => {
-      const token = await authService.getAccessToken();
-      const response = await fetch("weatherforecast", {
-        headers: !token ? {} : { Authorization: `Bearer ${token}` },
-      });
-      let data = await response.json();
-
-      data = {
-        challenges: [
-          {
-            id: "abcd",
-            topic: "Travel",
-            title: "Travel Challenge",
-            Description: "",
-            PointsToEarn: 2,
-            OpenFrom: "",
-            OpenTo: "",
-          },
-          {
-            id: "abcd3",
-            topic: "Food",
-            title: "Food Challenge",
-            Description: "",
-            PointsToEarn: 2,
-            OpenFrom: "",
-            OpenTo: "",
-          },
-          {
-            id: "abcd2",
-            topic: "Home",
-            title: "Home Challenge",
-            Description: "",
-            PointsToEarn: 2,
-            OpenFrom: "",
-            OpenTo: "",
-          },
-          {
-            id: "abcd1",
-            topic: "Stuff",
-            title: "Challenge",
-            Description: "",
-            PointsToEarn: 2,
-            OpenFrom: "",
-            OpenTo: "",
-          },
-        ],
-      };
+      const data = await apiClient.fetchUser();
 
       // set state with the result
       setUserData(data);
@@ -66,9 +21,7 @@ export const Home = () => {
     };
 
     // call the function
-    fetchData()
-      // make sure to catch any error
-      .catch(console.error);
+    fetchData().catch(console.error);
   }, []);
 
   if (isLoading) {

@@ -8,6 +8,7 @@ export const Challenges = ({
   onNewChallengeSelected,
 }) => (
   <>
+    <h2>Challenges</h2>
     {userData.challenges.map((challenge) => (
       <ChallengeCard
         key={challenge.id}
