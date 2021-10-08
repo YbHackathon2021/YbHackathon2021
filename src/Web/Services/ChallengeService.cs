@@ -20,7 +20,7 @@ namespace YbHackathon.Solutioneers.Web.Services
         {
             return dbContext.Challenges.Where(c => c.Id == id)
                 .Include(c => c.Image)
-                .First();
+                .FirstOrDefault();
         }
     }
 }
