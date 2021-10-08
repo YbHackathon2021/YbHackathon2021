@@ -3,6 +3,10 @@
 
 name: Build and deploy ASP.Net Core app to Azure Web App - livesustainability
 
+defaults:
+  run:
+    working-directory: src/Web
+
 on:
   push:
     branches:
