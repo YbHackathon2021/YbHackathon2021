@@ -7,7 +7,7 @@ const Scores = () => {
             <h1>Scores</h1>
 
             <div className="text-left">Food:</div>
-            <Progress animated value={10} />
+            <Progress animated color="primary" value={10} />
 
             <div className="text-left">Home:</div>
             <Progress animated color="success" value={25} />
