@@ -2,7 +2,13 @@ import React from "react";
 import { Button, Jumbotron } from "reactstrap";
 import colorService from "../services/colorService";
 
-export const ChallengeDetails = ({ challenge, onClose, isActive }) => {
+export const ChallengeDetails = ({
+  challenge,
+  onAccept,
+  onComplete,
+  onClose,
+  isActive,
+}) => {
   const buttonStyle = { width: "100%", height: "80px", fontSize: "20px" };
   const color = colorService.getColorByTopic(challenge.topic);
   const image = `data:image/png;base64,${challenge.image.data}`;
@@ -17,11 +23,11 @@ export const ChallengeDetails = ({ challenge, onClose, isActive }) => {
       <img style={{ width: "100%" }} src={image} alt={challenge.topic}></img>
 
       {isActive ? (
-        <Button style={buttonStyle} onClick={onClose} color={color}>
+        <Button style={buttonStyle} onClick={onComplete} color={color}>
           Complete Challenge
         </Button>
       ) : (
-        <Button style={buttonStyle} onClick={onClose} color={color}>
+        <Button style={buttonStyle} onClick={onAccept} color={color}>
           Accept Challenge
         </Button>
       )}

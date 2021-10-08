@@ -21,6 +21,16 @@ export class ApiClient {
     const token = await authService.getAccessToken();
     const response = await fetch(`userchallenges/challenge/${challengeId}`, {
       headers: !token ? {} : { Authorization: `Bearer ${token}` },
+      method: "post",
+    });
+    await response.json();
+  }
+
+  async completeChallenge(userChallengeId) {
+    const token = await authService.getAccessToken();
+    const response = await fetch(`userchallenges/${userChallengeId}/win`, {
+      headers: !token ? {} : { Authorization: `Bearer ${token}` },
+      method: "post",
     });
     await response.json();
   }
