@@ -22,7 +22,16 @@ export const Home = () => {
 
     // call the function
     fetchData().catch(console.error);
-  }, []);
+  }, [selectedChallenge]);
+
+  const accept = async () => {
+    console.log(selectedChallenge.challenge);
+
+    await apiClient.acceptChallenge(selectedChallenge.challenge.id);
+    setSelectedChallenge(undefined);
+  };
+
+  const complete = () => {};
 
   if (isLoading) {
     return <Spinner type="grow" color="info" />;
@@ -31,6 +40,8 @@ export const Home = () => {
       <ChallengeDetails
         challenge={selectedChallenge.challenge}
         isActive={selectedChallenge.isActive}
+        onAccept={accept}
+        onComplete={complete}
         onClose={() => setSelectedChallenge(undefined)}
       />
     );
