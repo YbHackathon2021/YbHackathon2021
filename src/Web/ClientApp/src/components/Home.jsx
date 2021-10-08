@@ -1,17 +1,27 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
+import { ChallengeDetails } from "./ChallengeDetails";
 import Challenges from "./Challenges";
 import Scores from "./Scores";
 
-export class Home extends Component {
-  static displayName = Home.name;
+export const Home = () => {
+  const [selectedChallenge, setSelectedChallenge] = useState(undefined);
 
-  render() {
+  if (selectedChallenge) {
+    return (
+      <ChallengeDetails
+        challenge={selectedChallenge}
+        onClose={() => setSelectedChallenge(undefined)}
+      />
+    );
+  } else {
     return (
       <>
         <Scores />
         <div class="h-divider"></div>
-        <Challenges />
+        <Challenges
+          onSelected={(challenge) => setSelectedChallenge(challenge)}
+        />
       </>
     );
   }
-}
+};

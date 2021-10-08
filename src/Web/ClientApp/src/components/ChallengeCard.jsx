@@ -1,9 +1,15 @@
 import React from "react";
+import { Card, CardBody, CardTitle, CardText } from "reactstrap";
 
-const ChallengeCard = (props) => {
+const ChallengeCard = ({ challenge, onSelected }) => {
   return (
     <>
-      <h1>ChallengeCard</h1>
+      <Card onClick={onSelected} style={{ cursor: "pointer" }}>
+        <CardBody>
+          <CardTitle tag="h5">{challenge.title}</CardTitle>
+          <CardText>{challenge.description}</CardText>
+        </CardBody>
+      </Card>
     </>
   );
 };

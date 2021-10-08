@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import { Spinner } from "reactstrap";
 import ChallengeCard from "./ChallengeCard";
 
-const Challenges = () => {
+const Challenges = ({ onSelected }) => {
   const [challenges, setChallenges] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -11,21 +11,23 @@ const Challenges = () => {
     // declare the async data fetching function
     const fetchData = async () => {
       const token = await authService.getAccessToken();
-      // const response = await fetch("weatherforecast", {
-      //   headers: !token ? {} : { Authorization: `Bearer ${token}` },
-      // });
-      // const data = await response.json();
+      const response = await fetch("weatherforecast", {
+        headers: !token ? {} : { Authorization: `Bearer ${token}` },
+      });
+      let data = await response.json();
 
-      const data = [
+      data = [
         {
+          id: "abcd",
           topic: "Travel",
           title: "Travel Challenge",
-          Description: token,
+          Description: "",
           PointsToEarn: 2,
           OpenFrom: "",
           OpenTo: "",
         },
         {
+          id: "abcd3",
           topic: "Food",
           title: "Food Challenge",
           Description: "",
@@ -34,6 +36,7 @@ const Challenges = () => {
           OpenTo: "",
         },
         {
+          id: "abcd2",
           topic: "Home",
           title: "Home Challenge",
           Description: "",
@@ -42,6 +45,7 @@ const Challenges = () => {
           OpenTo: "",
         },
         {
+          id: "abcd1",
           topic: "Stuff",
           title: "Challenge",
           Description: "",
@@ -66,7 +70,11 @@ const Challenges = () => {
     return (
       <>
         {challenges.map((challenge) => (
-          <ChallengeCard challenge={challenge} />
+          <ChallengeCard
+            key={challenge.id}
+            challenge={challenge}
+            onSelected={() => onSelected(challenge)}
+          />
         ))}
       </>
     );
