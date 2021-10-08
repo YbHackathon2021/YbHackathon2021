@@ -16,14 +16,14 @@ namespace YbHackathon.Solutioneers.Web.Services
         {
         }
 
-        public ActionResult<Score> Create(Score score)
+        public Score Create(Score score)
         {
             var added = dbContext.Scores.Add(score);
             dbContext.SaveChanges();
             return added.Entity;
         }
 
-        public ActionResult<Score> Update(Score score)
+        public Score Update(Score score)
         {
             var updated = dbContext.Scores.Update(score);
             dbContext.SaveChanges();

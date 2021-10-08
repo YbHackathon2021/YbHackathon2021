@@ -1,6 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using YbHackathon.Solutioneers.Web.Data;
@@ -11,30 +11,40 @@ namespace YbHackathon.Solutioneers.Web.Services
 {
     public class ChallengeService : BaseService<Challenge>, IChallengeService
     {
-        public ChallengeService(ApplicationDbContext dbContext, ILogger<ChallengeService> logger) : 
+        private readonly IUserChallengeService _userChallengeService;
+
+        public ChallengeService(ApplicationDbContext dbContext, ILogger<ChallengeService> logger, IUserChallengeService userChallengeService) : 
             base(dbContext, logger)
         {
+            _userChallengeService = userChallengeService;
         }
 
-        public ActionResult<Challenge> Create(Challenge challenge)
+        public Challenge Create(Challenge challenge)
         {
             var added = dbContext.Challenges.Add(challenge);
             dbContext.SaveChanges();
             return added.Entity;
         }
 
-        public new ActionResult<Challenge> GetById(Guid id)
+        public new Challenge GetById(Guid id)
         {
             return dbContext.Challenges.Where(c => c.Id == id)
                 .Include(c => c.Image)
                 .FirstOrDefault();
         }
 
-        public ActionResult<Challenge> Update(Challenge challenge)
+        public Challenge Update(Challenge challenge)
         {
             var updated = dbContext.Challenges.Update(challenge);
             dbContext.SaveChanges();
             return updated.Entity;
+        }
+
+        public IEnumerable<Challenge> GetAllNotStartedByCurrentUser(Guid userId)
+        {
+            var startedChallenges = _userChallengeService.GetAllByUserId(userId).Select(uc => uc.Challenge);
+
+            return dbContext.Challenges.Include(c => c.Image).Where(c => !startedChallenges.Any(sc => sc.Id == c.Id));
         }
     }
 }
