@@ -36,11 +36,11 @@ namespace YbHackathon.Solutioneers.Web.Data
             Guid GuidImageBike = new Guid("78B97670-B8C3-4603-BB83-36E0C86964A7");
             Guid GuidImageHeating = new Guid("5F942D9E-4A2D-4545-A7C5-5AA46B2B33E3");
             Guid GuidImagePumpkins = new Guid("3D093AB9-B086-44C4-B8E7-06D56DF8F395");
-            Guid GuidChallenge01 = new Guid("5B2FF22E-F3D4-4BE8-867B-4532F8F285B0");
-            Guid GuidChallenge02 = new Guid("5762DCB9-72C8-40C7-B4B5-EE26D5DDBD9A");
-            Guid GuidChallenge03 = new Guid("68DA4EB4-F62D-4DBE-B28F-6C87332F54D4");
-            Guid GuidChallenge04 = new Guid("3B248D48-72EF-4C7D-BC3C-32D2EAA757B9");
-            Guid GuidChallenge05 = new Guid("845C79AE-B98D-4004-B446-D48F8EE0F252");
+            Guid GuidChallenge01 = new Guid("6B2FF22E-F3D4-4BE8-867B-4532F8F285B0");
+            Guid GuidChallenge02 = new Guid("6762DCB9-72C8-40C7-B4B5-EE26D5DDBD9A");
+            Guid GuidChallenge03 = new Guid("78DA4EB4-F62D-4DBE-B28F-6C87332F54D4");
+            Guid GuidChallenge04 = new Guid("4B248D48-72EF-4C7D-BC3C-32D2EAA757B9");
+            Guid GuidChallenge05 = new Guid("945C79AE-B98D-4004-B446-D48F8EE0F252");
 
             base.OnModelCreating(builder);
             System.Drawing.ImageConverter _imageConverter = new System.Drawing.ImageConverter();
@@ -143,7 +143,7 @@ namespace YbHackathon.Solutioneers.Web.Data
                     Id = GuidChallenge03,
                     Title = "Bike to work - for your health and for our planet",
                     Description = "Switzerland-wide campaigns such as Bike to Work or Bike Wednesday are designed to encourage the Swiss to get around more by bike. At the beginning of June, more than 70,000 participants had already covered more than six and a half million kilometers by bicycle as part of Bike to Work. This has saved a good 900 tons of CO2 equivalents. Anyone who cycles to work every Wednesday and covers at least three kilometers can enter the distance traveled on the Bike Wednesday website and win vouchers or non-cash prizes.",
-                    Topic = Topic.Home,
+                    Topic = Topic.Travel,
                     PointsToEarn = 3,
                     OpenFrom = new DateTime(2021, 10, 1),
                     OpenTo = new DateTime(2023, 03, 20),
@@ -171,7 +171,7 @@ namespace YbHackathon.Solutioneers.Web.Data
                     Id = GuidChallenge05,
                     Title = "Pumpkins - regionally produced and currently seasonal",
                     Description = "As soon as the first leaves fall from the trees, you can see them shining from afar in the vegetable displays: Pumpkins in bright orange, yellow and green. But the pumpkin is not only a colorful highlight on the plate, but also a real soul food in the fall and therefore hard to imagine the cold months without the kitchen.Whether as a creamy pumpkin soup, spicy pumpkin pie, spread, quiche or as a side dish to risotto, pasta and Co. - the pumpkin is a true all - rounder!",
-                    Topic = Topic.Home,
+                    Topic = Topic.Food,
                     PointsToEarn = 3,
                     OpenFrom = new DateTime(2021, 10, 1),
                     OpenTo = new DateTime(2022, 05, 20),
