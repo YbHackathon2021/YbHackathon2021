@@ -1,9 +1,9 @@
 import authService from "./api-authorization/AuthorizeService";
 import React, { useState, useEffect } from "react";
 import { Spinner } from "reactstrap";
-import ChallengeCard from "./ChallengeCard";
+import { ChallengeCard } from "./ChallengeCard";
 
-const Challenges = ({ onSelected }) => {
+export const Challenges = ({ onSelected }) => {
   const [challenges, setChallenges] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -93,5 +93,3 @@ const Challenges = ({ onSelected }) => {
     </div>
   );
 };
-
-export default Challenges;

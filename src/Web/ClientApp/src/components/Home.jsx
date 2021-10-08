@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { ChallengeDetails } from "./ChallengeDetails";
-import Challenges from "./Challenges";
-import Scores from "./Scores";
+import { Challenges } from "./Challenges";
+import { Scores } from "./Scores";
 
 export const Home = () => {
   const [selectedChallenge, setSelectedChallenge] = useState(undefined);

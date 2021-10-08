@@ -1,7 +1,7 @@
 import React from "react";
 import { Card, CardBody, CardTitle, CardText } from "reactstrap";
 
-const ChallengeCard = ({ challenge, onSelected }) => {
+export const ChallengeCard = ({ challenge, onSelected }) => {
   return (
     <>
       <Card onClick={onSelected} style={{ cursor: "pointer" }}>
@@ -13,5 +13,3 @@ const ChallengeCard = ({ challenge, onSelected }) => {
     </>
   );
 };
-
-export default ChallengeCard;

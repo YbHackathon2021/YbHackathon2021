@@ -1,7 +1,7 @@
 import React from "react";
 import { Progress } from "reactstrap";
 
-const Scores = () => {
+export const Scores = () => {
   return (
     <>
       <h1>Scores</h1>
@@ -20,5 +20,3 @@ const Scores = () => {
     </>
   );
 };
-
-export default Scores;
