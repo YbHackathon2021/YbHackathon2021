@@ -2,7 +2,7 @@
 
 namespace YbHackathon.Solutioneers.Web.Services.Interfaces
 {
-    public interface IUserService : IBaseService<User, User>
+    public interface IUserService : IBaseService<User>
     {
     }
 }

@@ -6,10 +6,10 @@ using YbHackathon.Solutioneers.Web.Services.Interfaces;
 
 namespace YbHackathon.Solutioneers.Web.Services
 {
-    public class OfferService : BaseService<Offer, Offer>, IOfferService
+    public class OfferService : BaseService<Offer>, IOfferService
     {
-        public OfferService(ApplicationDbContext dbContext, IMapper mapper, ILogger logger) : 
-            base(dbContext, mapper, logger)
+        public OfferService(ApplicationDbContext dbContext, ILogger<OfferService> logger) : 
+            base(dbContext, logger)
         {
         }
     }

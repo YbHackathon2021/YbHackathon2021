@@ -11,35 +11,30 @@ using YbHackathon.Solutioneers.Web.Services.Interfaces;
 
 namespace YbHackathon.Solutioneers.Web.Services
 {
-    public class BaseService<TEntity, TResponseModel> : IBaseService<TEntity, TResponseModel> where TResponseModel : class where TEntity : BaseEntity
+    public class BaseService<TEntity> : IBaseService<TEntity> where TEntity : BaseEntity
     {
         protected readonly ApplicationDbContext dbContext;
-        protected readonly IMapper mapper;
-        protected readonly ILogger logger;
+        protected readonly ILogger<IBaseService<TEntity>> logger;
 
-        public BaseService(ApplicationDbContext dbContext, IMapper mapper, ILogger logger)
+        public BaseService(ApplicationDbContext dbContext, ILogger<IBaseService<TEntity>> logger)
         {
             this.dbContext = dbContext;
-            this.mapper = mapper;
             this.logger = logger;
         }
 
-        public IList<TResponseModel> GetAll()
+        public IList<TEntity> GetAll()
         {
-            var entities = dbContext.Set<TEntity>().ToList();
-            return mapper.Map<IList<TResponseModel>>(entities);
+            return dbContext.Set<TEntity>().ToList();
         }
 
-        public IList<TResponseModel> GetAll(Expression<Func<TEntity, bool>> filter)
+        public IList<TEntity> GetAll(Expression<Func<TEntity, bool>> filter)
         {
-            var entities = dbContext.Set<TEntity>().Where(filter).ToList();
-            return mapper.Map<IList<TResponseModel>>(entities);
+            return dbContext.Set<TEntity>().Where(filter).ToList();
         }
 
-        public ActionResult<TResponseModel> GetById(Guid id)
+        public ActionResult<TEntity> GetById(Guid id)
         {
-            var entity = dbContext.Find<TEntity>(id);
-            return mapper.Map<TResponseModel>(entity);
+            return dbContext.Find<TEntity>(id);
         }
     }
 }

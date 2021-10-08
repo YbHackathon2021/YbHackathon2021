@@ -8,10 +8,10 @@ using YbHackathon.Solutioneers.Web.Services.Interfaces;
 
 namespace YbHackathon.Solutioneers.Web.Services
 {
-    public class ScoreService : BaseService<Score, Score>, IScoreService
+    public class ScoreService : BaseService<Score>, IScoreService
     {
-        public ScoreService(ApplicationDbContext dbContext, IMapper mapper, ILogger logger) : 
-            base(dbContext, mapper, logger)
+        public ScoreService(ApplicationDbContext dbContext, ILogger<ScoreService> logger) : 
+            base(dbContext, logger)
         {
         }
     }

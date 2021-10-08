@@ -10,6 +10,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using YbHackathon.Solutioneers.Web.Data;
+using YbHackathon.Solutioneers.Web.Extensions;
 using YbHackathon.Solutioneers.Web.Models;
 
 namespace YbHackathon.Solutioneers.Web
@@ -49,6 +50,10 @@ namespace YbHackathon.Solutioneers.Web
             {
                 configuration.RootPath = "ClientApp/build";
             });
+
+            services.AddLogging();
+
+            services.AddBusinessServices();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -6,12 +6,11 @@ using YbHackathon.Solutioneers.Web.Models;
 
 namespace YbHackathon.Solutioneers.Web.Services.Interfaces
 {
-    public interface IBaseService<TEntity, TResponseModel>
+    public interface IBaseService<TEntity>
         where TEntity : BaseEntity
-        where TResponseModel : class
     {
-        IList<TResponseModel> GetAll();
-        IList<TResponseModel> GetAll(Expression<Func<TEntity, bool>> filter);
-        ActionResult<TResponseModel> GetById(Guid id);
+        IList<TEntity> GetAll();
+        IList<TEntity> GetAll(Expression<Func<TEntity, bool>> filter);
+        ActionResult<TEntity> GetById(Guid id);
     }
 }
