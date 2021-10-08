@@ -42,7 +42,7 @@ namespace YbHackathon.Solutioneers.Web.Services
 
             dbContext.SaveChanges();
 
-            return addedUser.Entity;
+            return GetById(addedUser.Entity.Id);
         }
 
         public User Update(User user)
