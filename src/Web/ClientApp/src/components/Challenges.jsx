@@ -9,7 +9,7 @@ export const Challenges = ({
 }) => (
   <>
     <h2>Challenges</h2>
-    {userData.challenges
+    {userData.userChallenges
       .filter((userChallenge) => userChallenge.state === "open")
       .map((userChallenge) => (
         <ChallengeCard
