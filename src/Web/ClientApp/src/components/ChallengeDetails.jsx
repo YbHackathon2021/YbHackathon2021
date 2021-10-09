@@ -14,8 +14,6 @@ export const ChallengeDetails = ({
   const color = colorService.getColorByTopic(challenge.topic);
   const image = `data:image/png;base64,${challenge.image.data}`;
 
-  console.log(challenge);
-
   return (
     <>
       <img style={{ width: "100%" }} src={image} alt={challenge.topic}></img>

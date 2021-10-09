@@ -54,8 +54,6 @@ export const Home = () => {
   } else if (showGif) {
     return <WinnerGif onClose={() => setShowGif(false)} />;
   } else {
-    console.log(userData);
-
     return (
       <Container>
         <Scores userData={userData} />

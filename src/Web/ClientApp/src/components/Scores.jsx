@@ -1,6 +1,7 @@
 import React from "react";
 import { Progress, Row, Col, Badge } from "reactstrap";
 import colorService from "../services/colorService";
+import { AchievementBadge } from "./AchievmentBadge";
 
 export const Scores = ({ userData }) => {
   return (
@@ -36,27 +37,9 @@ export const Scores = ({ userData }) => {
         </Col>
         <Col xs="12" md="4">
           <h2 class="display-4">Achievements</h2>
-          <Badge
-            color="primary"
-            pill
-            style={{ marginLeft: "10", marginRight: "2" }}
-          >
-            Beginner
-          </Badge>
-          <Badge
-            color="warning"
-            pill
-            style={{ marginLeft: "2", marginRight: "2" }}
-          >
-            Master
-          </Badge>
-          <Badge
-            color="danger"
-            pill
-            style={{ marginLeft: "2", marginRight: "2" }}
-          >
-            Guru
-          </Badge>
+          {userData.scores.map((score) => (
+            <AchievementBadge topic={score.topic} score={score.currentScore} />
+          ))}
           <div className="h-divider-100"></div>
           <h2 class="display-4">Friends</h2>
           ...
