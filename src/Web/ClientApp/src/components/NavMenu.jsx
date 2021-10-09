@@ -39,7 +39,11 @@ export class NavMenu extends Component {
         >
           <Container>
             <NavbarBrand tag={Link} to="/">
-              <span role="img" aria-label="live sustainable">
+              <span
+                role="img"
+                aria-label="live sustainable"
+                style={{ fontSize: "30px" }}
+              >
                 🌿
               </span>
             </NavbarBrand>
