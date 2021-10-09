@@ -5,6 +5,7 @@ import { Scores } from "./Scores";
 import { WinnerGif } from "./WinnerGif";
 import { Spinner } from "reactstrap";
 import apiClient from "../services/apiClient";
+import { Tips } from "./Tips";
 
 export const Home = () => {
   const [selectedChallenge, setSelectedChallenge] = useState(undefined);
@@ -75,6 +76,8 @@ export const Home = () => {
             })
           }
         />
+        <div className="h-divider-50"></div>
+        <Tips />
       </>
     );
   }

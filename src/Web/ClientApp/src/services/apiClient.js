@@ -17,6 +17,22 @@ export class ApiClient {
     return await response.json();
   }
 
+  async fetchTips() {
+    // const token = await authService.getAccessToken();
+    // const response = await fetch("tips", {
+    //   headers: !token ? {} : { Authorization: `Bearer ${token}` },
+    // });
+    // return await response.json();
+
+    return [
+      {
+        id: "tip1",
+        title: "Tip No 1",
+        topic: "Food",
+      },
+    ];
+  }
+
   async acceptChallenge(challengeId) {
     const token = await authService.getAccessToken();
     const response = await fetch(`userchallenges/challenge/${challengeId}`, {

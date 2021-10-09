@@ -5,9 +5,9 @@ import colorService from "../services/colorService";
 export const Scores = ({ userData }) => {
   return (
     <>
-<Container>
-    <Row>
-        <Col xs="8">
+      <Container>
+        <Row>
+          <Col xs="8">
             <h2>Scores</h2>
 
             {userData.scores.map((score) => (
@@ -17,42 +17,52 @@ export const Scores = ({ userData }) => {
                   animated
                   color={colorService.getColorByTopic(score.topic)}
                   value={score.currentScore}
-                    />
+                  style={{ height: "40px" }}
+                />
                 <Progress
-                    color="secondary"
-                    value={Math.random() * 100}
+                  color="secondary"
+                  value={
+                    score.topic === "Food"
+                      ? 45
+                      : score.topic === "Travel"
+                      ? 25
+                      : score.topic === "Home"
+                      ? 70
+                      : 35
+                  }
                 />
               </React.Fragment>
             ))}
-        </Col>
-        <Col xs="4">
+          </Col>
+          <Col xs="4">
             <h3>Achievements</h3>
             <Badge
-                color="primary"
-                pill
-                style={{ marginLeft: "10", marginRight: "2" }}
+              color="primary"
+              pill
+              style={{ marginLeft: "10", marginRight: "2" }}
             >
-                Beginner
+              Beginner
             </Badge>
             <Badge
-                color="warning"
-                pill
-                style={{ marginLeft: "2", marginRight: "2" }}
+              color="warning"
+              pill
+              style={{ marginLeft: "2", marginRight: "2" }}
             >
-                Master
+              Master
             </Badge>
             <Badge
-                color="danger"
-                pill
-                style={{ marginLeft: "2", marginRight: "2" }}
+              color="danger"
+              pill
+              style={{ marginLeft: "2", marginRight: "2" }}
             >
-                Guru
+              Guru
             </Badge>
+            <div className="h-divider-50"></div>
             <h3>Friends</h3>
             ...
-        </Col>
-    </Row>
-</Container>
-</>
+          </Col>
+        </Row>
+      </Container>
+    </>
   );
 };
