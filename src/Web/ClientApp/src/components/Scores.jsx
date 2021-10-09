@@ -7,7 +7,7 @@ export const Scores = ({ userData }) => {
     <>
       <Row>
         <Col xs="12" md="8">
-          <h2>Scores</h2>
+          <h2 class="display-4">Scores</h2>
 
           {userData.scores.map((score) => (
             <React.Fragment>
@@ -35,7 +35,7 @@ export const Scores = ({ userData }) => {
           <div className="h-divider-100"></div>
         </Col>
         <Col xs="12" md="4">
-          <h3>Achievements</h3>
+          <h2 class="display-4">Achievements</h2>
           <Badge
             color="primary"
             pill
@@ -58,7 +58,7 @@ export const Scores = ({ userData }) => {
             Guru
           </Badge>
           <div className="h-divider-100"></div>
-          <h3>Friends</h3>
+          <h2 class="display-4">Friends</h2>
           ...
         </Col>
       </Row>

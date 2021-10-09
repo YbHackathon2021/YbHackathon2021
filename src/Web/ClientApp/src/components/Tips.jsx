@@ -29,7 +29,7 @@ export const Tips = () => {
 
   return (
     <>
-      <h2>Tips</h2>
+      <h2 class="display-4">Tips</h2>
       {tips.map((tip) => (
         <TipCard key={tip.id} tip={tip} />
       ))}

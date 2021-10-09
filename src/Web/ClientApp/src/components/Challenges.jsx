@@ -8,7 +8,7 @@ export const Challenges = ({
   onNewChallengeSelected,
 }) => (
   <>
-    <h2>Challenges</h2>
+    <h2 class="display-4">Challenges</h2>
     <h5>Active</h5>
     {userData.userChallenges
       .filter((userChallenge) => userChallenge.state === "open")
