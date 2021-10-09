@@ -15,6 +15,14 @@ export class ApiClient {
       headers: !token ? {} : { Authorization: `Bearer ${token}` },
     });
     return await response.json();
+    }
+
+  async fetchKeys() {
+      const token = await authService.getAccessToken();
+      const response = await fetch("Keys", {
+          headers: !token ? {} : { Authorization: `Bearer ${token}` },
+      });
+      return await response.json();
   }
 
   async fetchTips() {
