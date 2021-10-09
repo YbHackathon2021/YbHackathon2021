@@ -20,6 +20,7 @@ namespace YbHackathon.Solutioneers.Web.Data
         public DbSet<Supplier> Suppliers { get; set; }
         public DbSet<User> InternalUsers { get; set; }
         public DbSet<UserChallenge> UserChallenges { get; set; }
+        public DbSet<Tip> Tips { get; set; }
 
         public ApplicationDbContext(
             DbContextOptions options,

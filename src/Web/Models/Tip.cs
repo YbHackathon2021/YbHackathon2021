@@ -3,10 +3,8 @@ using static YbHackathon.Solutioneers.Web.Models.Enum;
 
 namespace YbHackathon.Solutioneers.Web.Models
 {
-    public class Tip
+    public class Tip : BaseEntity
     {
-        public Guid Id { get; set; }
-
         public string Title { get; set; }
 
         public Topic Topic { get; set; }
