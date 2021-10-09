@@ -29,6 +29,10 @@ export class ApiClient {
         id: "tip1",
         title: "Tip No 1",
         topic: "Food",
+        teaser: "Bla bla bla bla",
+        url: "https://google.com",
+        imageUrl:
+          "https://www.nachhaltigleben.ch/images/stories/Bilder%20Kooperation/Gutes_Gewissen_Sens_645.jpg",
       },
     ];
   }
