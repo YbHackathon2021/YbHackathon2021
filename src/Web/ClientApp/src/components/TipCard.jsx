@@ -7,7 +7,6 @@ import {
   CardLink,
   CardSubtitle,
 } from "reactstrap";
-import colorService from "../services/colorService";
 
 export const TipCard = ({ tip }) => {
   return (

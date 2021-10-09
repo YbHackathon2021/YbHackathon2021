@@ -44,6 +44,7 @@ export const ChallengeDetails = ({
       <Button style={buttonStyle} onClick={onClose}>
         Back to Overview
       </Button>
+      <div className="h-divider-10"></div>
     </>
   );
 };
