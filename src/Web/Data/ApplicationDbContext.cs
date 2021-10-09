@@ -22,8 +22,6 @@ namespace YbHackathon.Solutioneers.Web.Data
         public DbSet<UserChallenge> UserChallenges { get; set; }
         public DbSet<Tip> Tips { get; set; }
 
-        public DbSet<Tip> Tips { get; set; }
-
         public ApplicationDbContext(
             DbContextOptions options,
             IOptions<OperationalStoreOptions> operationalStoreOptions) : base(options, operationalStoreOptions)
