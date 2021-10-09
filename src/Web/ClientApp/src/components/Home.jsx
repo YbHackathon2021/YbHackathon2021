@@ -3,7 +3,7 @@ import { ChallengeDetails } from "./ChallengeDetails";
 import { Challenges } from "./Challenges";
 import { Scores } from "./Scores";
 import { WinnerGif } from "./WinnerGif";
-import { Spinner } from "reactstrap";
+import { Spinner, Container, Row, Col } from "reactstrap";
 import apiClient from "../services/apiClient";
 import { Tips } from "./Tips";
 
@@ -33,9 +33,9 @@ export const Home = () => {
   };
 
   const complete = async (userChallengeId) => {
-      await apiClient.completeChallenge(userChallengeId);
-      setSelectedChallenge(undefined);
-      setShowGif(true);
+    await apiClient.completeChallenge(userChallengeId);
+    setSelectedChallenge(undefined);
+    setShowGif(true);
   };
 
   if (isLoading) {
@@ -52,34 +52,54 @@ export const Home = () => {
       />
     );
   } else if (showGif) {
-      return (<WinnerGif onClose={() => setShowGif(false)}/>);
+    return <WinnerGif onClose={() => setShowGif(false)} />;
   } else {
     console.log(userData);
 
     return (
-      <>
+      <Container>
         <Scores userData={userData} />
-        <div className="h-divider-100" />
-        <Challenges
-          userData={userData}
-          onActiveChallengeSelected={(challenge, userChallengeId) =>
-            setSelectedChallenge({
-              challenge,
-              isActive: true,
-              userChallengeId: userChallengeId,
-            })
-          }
-          onNewChallengeSelected={(challenge) =>
-            setSelectedChallenge({
-              challenge,
-              isActive: false,
-            })
-          }
-        />
-         <div className="h-divider-100" />
-        <Tips />
-        <div className="h-divider-10"></div>
-      </>
+        <Row>
+          <Col xs="12">
+            <div className="h-divider-100" />
+          </Col>
+        </Row>
+        <Row>
+          <Col xs="12">
+            <Challenges
+              userData={userData}
+              onActiveChallengeSelected={(challenge, userChallengeId) =>
+                setSelectedChallenge({
+                  challenge,
+                  isActive: true,
+                  userChallengeId: userChallengeId,
+                })
+              }
+              onNewChallengeSelected={(challenge) =>
+                setSelectedChallenge({
+                  challenge,
+                  isActive: false,
+                })
+              }
+            />
+          </Col>
+        </Row>
+        <Row>
+          <Col xs="12">
+            <div className="h-divider-100" />
+          </Col>
+        </Row>
+        <Row>
+          <Col xs="12">
+            <Tips />
+          </Col>
+        </Row>
+        <Row>
+          <Col xs="12">
+            <div className="h-divider-10"></div>
+          </Col>
+        </Row>
+      </Container>
     );
   }
 };
