@@ -57,7 +57,7 @@ export const Scores = ({ userData }) => {
             >
               Guru
             </Badge>
-            <div className="h-divider-50"></div>
+            <div className="h-divider-100"></div>
             <h3>Friends</h3>
             ...
           </Col>

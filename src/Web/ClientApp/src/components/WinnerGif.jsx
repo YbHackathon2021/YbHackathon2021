@@ -34,10 +34,11 @@ export const WinnerGif = ({ onClose }) => {
       <div style={{ textAlign: "center" }}>
         <img style={{ width: "50%" }} src={imgUrl} alt="Excited"></img>
       </div>
-
+      <div className="h-divider-100"></div>
       <Button style={buttonStyle} onClick={onClose}>
         Celebration finished
       </Button>
+      <div className="h-divider-10"></div>
     </>
   );
 };

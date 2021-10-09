@@ -59,7 +59,7 @@ export const Home = () => {
     return (
       <>
         <Scores userData={userData} />
-        <div className="h-divider-50"></div>
+        <div className="h-divider-100" />
         <Challenges
           userData={userData}
           onActiveChallengeSelected={(challenge, userChallengeId) =>
@@ -76,8 +76,9 @@ export const Home = () => {
             })
           }
         />
-        <div className="h-divider-50"></div>
+         <div className="h-divider-100" />
         <Tips />
+        <div className="h-divider-10"></div>
       </>
     );
   }

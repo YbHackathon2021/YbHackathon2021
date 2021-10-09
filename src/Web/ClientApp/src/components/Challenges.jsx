@@ -21,7 +21,7 @@ export const Challenges = ({
           }
         />
       ))}
-    <div className="h-divider-50"></div>
+    <div className="h-divider-100"></div>
     <ChallengeCatalog
       onShowChallengeDetails={(challenge) => onNewChallengeSelected(challenge)}
     />
