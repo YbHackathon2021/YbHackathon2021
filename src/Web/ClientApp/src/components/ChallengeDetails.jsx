@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, Jumbotron, Container, Row, Col } from "reactstrap";
+import { Alert, Button, Jumbotron, Container, Row, Col } from "reactstrap";
 import colorService from "../services/colorService";
 
 export const ChallengeDetails = ({
@@ -24,7 +24,17 @@ export const ChallengeDetails = ({
         <hr className="my-2" />
         <p className="lead">{challenge.description}</p>
       </Jumbotron>
-      <div className="h-divider-100"></div>
+      <div className="h-divider-10"></div>
+      {isActive ? (
+        <Alert color="info" style={{ textAlign: "center" }}>
+          <h4 className="alert-heading">
+            You accepted this challenge - good luck!
+          </h4>
+        </Alert>
+      ) : (
+        <></>
+      )}
+      <div className="h-divider-10"></div>
       <Container>
         <Row>
           <Col xs="12" md="6" style={{ textAlign: "center" }}>
