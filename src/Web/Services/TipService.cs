@@ -12,7 +12,7 @@ namespace YbHackathon.Solutioneers.Web.Services
 {
     public class TipService : BaseService<Tip>, ITipService
     {
-        public TipService(ApplicationDbContext dbContext, ILogger<TipService> logger) : 
+        public TipService(ApplicationDbContext dbContext, ILogger<TipService> logger) :
             base(dbContext, logger)
         {
 
@@ -21,19 +21,30 @@ namespace YbHackathon.Solutioneers.Web.Services
         public new IList<Tip> GetAll()
         {
             var tips = dbContext.Tips.ToList();
+            var foodTip = GetRandomTip(Enum.Topic.Food, tips);
+            var homeTip = GetRandomTip(Enum.Topic.Home, tips);
+            var stuffTip = GetRandomTip(Enum.Topic.Stuff, tips);
+            var travelTip = GetRandomTip(Enum.Topic.Travel, tips);
 
-            var tip1 = tips.Where(t => t.Topic == Enum.Topic.Food).ElementAt(RandomNumberGenerator.GetInt32(0, tips.Count -1));
-            var tip2 = tips.Where(t => t.Topic == Enum.Topic.Home).ElementAt(RandomNumberGenerator.GetInt32(0, tips.Count - 1));
-            var tip3 = tips.Where(t => t.Topic == Enum.Topic.Stuff).ElementAt(RandomNumberGenerator.GetInt32(0, tips.Count - 1));
-            var tip4 = tips.Where(t => t.Topic == Enum.Topic.Travel).ElementAt(RandomNumberGenerator.GetInt32(0, tips.Count - 1));
+            List<Tip> result = new();
 
-            return new List<Tip>
+            if (foodTip is not null) { result.Add(foodTip); }
+            if (homeTip is not null) { result.Add(homeTip); }
+            if (stuffTip is not null) { result.Add(stuffTip); }
+            if (travelTip is not null) { result.Add(travelTip); }
+
+            return result;
+        }
+
+        private Tip GetRandomTip(Enum.Topic topic, List<Tip> allTips)
+        {
+            var tipsOfTopic = allTips.Where(t => t.Topic == topic).ToList();
+            if (tipsOfTopic.Any())
             {
-                tip1,
-                tip2,
-                tip3,
-                tip4
-            };
+                return tipsOfTopic.ElementAt(RandomNumberGenerator.GetInt32(0, tipsOfTopic.Count - 1));
+            }
+
+            return null;
         }
     }
 }

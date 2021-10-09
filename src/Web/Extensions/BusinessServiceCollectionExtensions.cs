@@ -17,6 +17,7 @@ namespace YbHackathon.Solutioneers.Web.Extensions
             services.AddScoped<IUserService, UserService>();
             services.AddScoped<IChallengeService, ChallengeService>();
             services.AddScoped<IUserChallengeService, UserChallengeService>();
+            services.AddScoped<ITipService, TipService>();
 
             return services;
         }
