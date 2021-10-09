@@ -1,5 +1,5 @@
 import React from "react";
-import { Progress, Row, Col, Badge } from "reactstrap";
+import { Progress, Row, Col } from "reactstrap";
 import colorService from "../services/colorService";
 import { AchievementBadge } from "./AchievmentBadge";
 
