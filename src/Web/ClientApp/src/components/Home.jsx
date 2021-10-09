@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { ChallengeDetails } from "./ChallengeDetails";
 import { Challenges } from "./Challenges";
 import { Scores } from "./Scores";
+import { WinnerGif } from "./WinnerGif";
 import { Spinner } from "reactstrap";
 import apiClient from "../services/apiClient";
 
@@ -9,6 +10,7 @@ export const Home = () => {
   const [selectedChallenge, setSelectedChallenge] = useState(undefined);
   const [userData, setUserData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [showGif, setShowGif] = useState(false);
 
   useEffect(() => {
     // declare the async data fetching function
@@ -30,8 +32,9 @@ export const Home = () => {
   };
 
   const complete = async (userChallengeId) => {
-    await apiClient.completeChallenge(userChallengeId);
-    setSelectedChallenge(undefined);
+      await apiClient.completeChallenge(userChallengeId);
+      setSelectedChallenge(undefined);
+      setShowGif(true);
   };
 
   if (isLoading) {
@@ -47,6 +50,8 @@ export const Home = () => {
         onClose={() => setSelectedChallenge(undefined)}
       />
     );
+  } else if (showGif) {
+      return (<WinnerGif onClose={() => setShowGif(false)}/>);
   } else {
     console.log(userData);
 
