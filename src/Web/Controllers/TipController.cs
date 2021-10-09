@@ -20,7 +20,7 @@ namespace YbHackathon.Solutioneers.Web.Controllers
         }
 
         [HttpGet]
-        public IEnumerable<Challenge> Get()
+        public IEnumerable<Tip> Get()
         {
             return _tipService.GetAll();
         }
