@@ -24,8 +24,8 @@ class NachhaltiglebenSpider(scrapy.Spider):
 
     server = 'livesustainability.database.windows.net'
     database = 'livesustainability'
-    username = 'Crawler'
-    password = 'doItYourself$'
+    username = '{username}'
+    password = '{password}'
     driver = '{SQL Server}'
 
     def __init__(self):
