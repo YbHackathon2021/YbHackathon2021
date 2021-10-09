@@ -6,7 +6,7 @@ export const Scores = ({ userData }) => {
   return (
     <>
       <Row>
-        <Col xs="12" sm="8">
+        <Col xs="12" md="8">
           <h2>Scores</h2>
 
           {userData.scores.map((score) => (
@@ -34,7 +34,7 @@ export const Scores = ({ userData }) => {
           ))}
           <div className="h-divider-100"></div>
         </Col>
-        <Col xs="12" sm="4">
+        <Col xs="12" md="4">
           <h3>Achievements</h3>
           <Badge
             color="primary"
