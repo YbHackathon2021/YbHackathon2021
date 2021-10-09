@@ -26,23 +26,23 @@ export class ApiClient {
   }
 
   async fetchTips() {
-    // const token = await authService.getAccessToken();
-    // const response = await fetch("tips", {
-    //   headers: !token ? {} : { Authorization: `Bearer ${token}` },
-    // });
-    // return await response.json();
+    const token = await authService.getAccessToken();
+    const response = await fetch("tip", {
+      headers: !token ? {} : { Authorization: `Bearer ${token}` },
+    });
+    return await response.json();
 
-    return [
-      {
-        id: "tip1",
-        title: "Tip No 1",
-        topic: "Food",
-        teaser: "Bla bla bla bla",
-        url: "https://google.com",
-        imageUrl:
-          "https://www.nachhaltigleben.ch/images/stories/Bilder%20Kooperation/Gutes_Gewissen_Sens_645.jpg",
-      },
-    ];
+    // return [
+    //   {
+    //     id: "tip1",
+    //     title: "Tip No 1",
+    //     topic: "Food",
+    //     teaser: "Bla bla bla bla",
+    //     url: "https://google.com",
+    //     imageUrl:
+    //       "https://www.nachhaltigleben.ch/images/stories/Bilder%20Kooperation/Gutes_Gewissen_Sens_645.jpg",
+    //   },
+    // ];
   }
 
   async acceptChallenge(challengeId) {
